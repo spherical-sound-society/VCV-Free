@@ -152,7 +152,7 @@ struct GlitchStormModuleWidget : ModuleWidget
     GlitchStormModuleWidget(GlitchStormModule *module)
     {
         setModule(module);
-        setPanel(createPanel(asset::plugin(pluginInstance, "res/glitch_traced.svg")));
+        setPanel(createPanel(asset::plugin(pluginInstance, "res/glitch_panel_traced.svg")));
 
         //addChild(createWidget<ThemedScrew>(Vec(RACK_GRID_WIDTH, 0)));
         //addChild(createWidget<ThemedScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
@@ -169,7 +169,7 @@ struct GlitchStormModuleWidget : ModuleWidget
         equation_knob->ringColor = nvgRGB(0xff, 0xd7, 0x00); // Dorado
         addParam(equation_knob);
 
-        addInput(createInputCentered<JackiesPort>(mm2px(Vec(28.0, 24.0)), module, GlitchStormModule::EQUATION_INPUT));
+        addInput(createInputCentered<JackIn>(mm2px(Vec(28.0, 24.0)), module, GlitchStormModule::EQUATION_INPUT));
 
         // --- SECCIÓN PITCH ---
         BipolarModRingKnob* clock_knob = createParamCentered<BipolarModRingKnob>(mm2px(Vec(48.0, 23.0)), module, GlitchStormModule::CLOCK_DIVISION_KNOB);
@@ -179,7 +179,7 @@ struct GlitchStormModuleWidget : ModuleWidget
         clock_knob->inputId = GlitchStormModule::CLOCK_CV_INPUT;
         clock_knob->ringColor = nvgRGB(0xff, 0xd7, 0x00); // Dorado
         addParam(clock_knob);
-        addInput(createInputCentered<JackiesPort>(mm2px(Vec(64.0, 24.0)), module, GlitchStormModule::CLOCK_CV_INPUT));
+        addInput(createInputCentered<JackIn>(mm2px(Vec(64.0, 24.0)), module, GlitchStormModule::CLOCK_CV_INPUT));
 
         // --- SECCIÓN PARAMETERS ---
         float knobY = 74.0+1;
@@ -234,20 +234,20 @@ struct GlitchStormModuleWidget : ModuleWidget
 
         // --- SECCIÓN JACKS A, B, C (Fila 4) ---
         float jackY = 97.0; 
-        addInput(createInputCentered<JackiesPort>(mm2px(Vec(17.0, jackY)), module, GlitchStormModule::PARAM_INPUT_1));
-        addInput(createInputCentered<JackiesPort>(mm2px(Vec(38.0, jackY)), module, GlitchStormModule::PARAM_INPUT_2));
-        addInput(createInputCentered<JackiesPort>(mm2px(Vec(59.0, jackY)), module, GlitchStormModule::PARAM_INPUT_3));
+        addInput(createInputCentered<JackIn>(mm2px(Vec(17.0, jackY)), module, GlitchStormModule::PARAM_INPUT_1));
+        addInput(createInputCentered<JackIn>(mm2px(Vec(38.0, jackY)), module, GlitchStormModule::PARAM_INPUT_2));
+        addInput(createInputCentered<JackIn>(mm2px(Vec(59.0, jackY)), module, GlitchStormModule::PARAM_INPUT_3));
 float bottom_jacksY = 117.5; 
         // --- SALIDA CLOCK ---
-        addOutput(createOutputCentered<JackiesPort>(mm2px(Vec(8.5+3, bottom_jacksY)), module, GlitchStormModule::CLOCK_OUTPUT));
+        addOutput(createOutputCentered<JackOut>(mm2px(Vec(8.5+3, bottom_jacksY)), module, GlitchStormModule::CLOCK_OUTPUT));
 
         // --- RESET INPUT ---
-        addInput(createInputCentered<JackiesPort>(mm2px(Vec(24.5, bottom_jacksY)), module, GlitchStormModule::RESET_INPUT));
+        addInput(createInputCentered<JackIn>(mm2px(Vec(24.5, bottom_jacksY)), module, GlitchStormModule::RESET_INPUT));
 
         // --- SALIDA DE AUDIO (OUT) ---
-        addOutput(createOutputCentered<JackiesPort>(mm2px(Vec(61.5+3, bottom_jacksY)), module, GlitchStormModule::AUDIO_MONO));
-        addOutput(createOutputCentered<JackiesPort>(mm2px(Vec(34.5+3, bottom_jacksY)), module, GlitchStormModule::AUDIO_LEFT));
-        addOutput(createOutputCentered<JackiesPort>(mm2px(Vec(48.5+3, bottom_jacksY)), module, GlitchStormModule::AUDIO_RIGHT));
+        addOutput(createOutputCentered<JackOut>(mm2px(Vec(61.5+3, bottom_jacksY)), module, GlitchStormModule::AUDIO_MONO));
+        addOutput(createOutputCentered<JackOut>(mm2px(Vec(34.5+3, bottom_jacksY)), module, GlitchStormModule::AUDIO_LEFT));
+        addOutput(createOutputCentered<JackOut>(mm2px(Vec(48.5+3, bottom_jacksY)), module, GlitchStormModule::AUDIO_RIGHT));
     }
 };
 
@@ -658,4 +658,3 @@ uint32_t GlitchStormModule::mod(uint32_t a, uint32_t b)
   }
 
 Model *modelGlitchStorm = createModel<GlitchStormModule, GlitchStormModuleWidget>("GlitchStorm");
-Model *modelBlank = createModel<GlitchStormModule, GlitchStormModuleWidget>("blank");

@@ -28,7 +28,7 @@ struct BipolarModRingKnob : app::SvgKnob {
 
     BipolarModRingKnob() {
         setSvg(APP->window->loadSvg(
-            asset::plugin(pluginInstance, "res/knob5.svg")
+            asset::plugin(pluginInstance, "res/knob.svg")
         ));
     }
 
@@ -139,10 +139,18 @@ struct TinyAttenuverterKnob : app::SvgKnob {
     }
 };
 
-struct JackiesPort : app::SvgPort {
-    JackiesPort() {
+struct JackIn : app::SvgPort {
+    JackIn() {
         setSvg(APP->window->loadSvg(
-            asset::plugin(pluginInstance, "res/jackies2.svg")
+            asset::plugin(pluginInstance, "res/jack_in.svg")
+        ));
+    }
+};
+
+struct JackOut : app::SvgPort {
+    JackOut() {
+        setSvg(APP->window->loadSvg(
+            asset::plugin(pluginInstance, "res/jack_out.svg")
         ));
     }
 };
