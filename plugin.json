@@ -19,7 +19,7 @@
       "name": "GlitchStorm",
       "description": "Bytebeat synthesizer, hardware clone",
       "manualUrl": "https://github.com/spherical-sound-society/VCV-Free/blob/main/README.md",
-      "tags": [ "Synthesizer", "Chiptune", "Noise" ]
+      "tags": [ "Digital", "Function generator", "Hardware clone", "Noise", "Oscillator"  ] 
     }
   ]
 }
