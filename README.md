@@ -7,14 +7,13 @@ GlitchStorm is a bytebeat machine inspired based on a hardware synth that I prod
 ## Parameters
 
 - **Program Knob**: Selects the program (or equation) to run
-- **Rate Knob**: Controls the sample rate (or pitch) of the 
-- **A, B, C**: These knobs affect the internal bitwise operations of the glitch engine. Small changes can lead to radically different sonic results.
+- **Rate Knob**: Controls the sample rate (or pitch) that tha synth is running at.
+- **A, B, C**: These knobs affect the internal bitwise operations of the bytebeat engine.
 - **Attenuverters**: Located over the CV inputs, these control the depth and polarity of the incoming modulation.
 
 ## Inputs
 
 - **RESET**: Restarts the engine
-CV control for all the parameters
 
 ## Outputs
 
